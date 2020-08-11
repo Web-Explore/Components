@@ -1,5 +1,3 @@
-import React from "react";
+import Test from "./components/example";
 
-function Test(props) {
-  return <div>Test</div>;
-}
+export { Test };

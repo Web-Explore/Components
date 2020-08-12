@@ -5,3 +5,6 @@ dist
 
 # docz сервер и статика
 .docz
+
+# The WebStorm IDE files
+.idea

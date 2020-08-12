@@ -1,10 +1,13 @@
 node_modules
 
-# бандлы вебпака
+# webpack bundles
 dist
 
-# docz сервер и статика
+# docz server and static files
 .docz
 
 # The WebStorm IDE files
 .idea
+
+# VS Code workspace configurations
+.vscode

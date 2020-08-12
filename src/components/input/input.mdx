@@ -1,0 +1,19 @@
+---
+name: Input
+menu: Components
+---
+
+import { Input } from './input.jsx';
+import { Playground, Props } from "docz";
+
+# Input
+
+<Props of={Input} />
+
+<Playground>{() => {
+  const [value, setValue] = React.useState('');
+  console.log(value);
+  return (
+    <Input value={value} onChange={setValue} />
+  );
+}}</Playground>

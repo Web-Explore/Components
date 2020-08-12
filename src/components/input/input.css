@@ -1,0 +1,16 @@
+.Input {
+    width: 100%;
+    height: 40px;
+}
+
+.Input_optional {
+    border: 1px solid grey;
+}
+
+.Input_required {
+    border: 2px solid black;
+}
+
+.input_disabled {
+
+}

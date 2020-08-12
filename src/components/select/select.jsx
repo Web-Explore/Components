@@ -31,6 +31,7 @@ const optionType = t.shape({
  * Select component
  */
 const Select = ({
+  placeholder,
   options,
   onChange,
   required,
@@ -40,6 +41,7 @@ const Select = ({
   ...attrs
 }) => {
   const selectClasses = cn('Select')({ required, optional, disabled })
+  const contentClasses = cn('Select', 'content')()
 
   const [_options, setOptions] = React.useState(options)
 
@@ -82,14 +84,17 @@ const Select = ({
       </li>
     ))
 
+  const title =
+    getSelected(_options)
+      .map(opt => opt.label)
+      .join(', ') || placeholder
+
   return (
-    <div>
-      <ul
-        className={selectClasses}
-        onClick={onFold}
-        disabled={disabled}
-        required={required}
-        {...attrs}>
+    <div className="Select-wrapper">
+      <div className={selectClasses} onClick={onFold}>
+        {title}
+      </div>
+      <ul className={contentClasses} {...attrs}>
         {isOpen && generateOptions()}
       </ul>
     </div>
@@ -97,6 +102,10 @@ const Select = ({
 }
 
 Select.propTypes = {
+  /**
+   * Placeholder
+   */
+  placeholder: t.string.isRequired,
   /**
    * List of displayed options
    */

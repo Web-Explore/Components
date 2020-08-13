@@ -1,0 +1,41 @@
+.Button {
+  padding: 10px 25px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+
+  display: flex;
+
+  color: #EDAC1A;
+  border: 3px solid #EDAC1A;
+  border-radius: 8px;
+}
+
+.Icon {
+  display: none;
+  padding-right: 10px;
+}
+
+.Button-Icon {
+  padding: 10px 25px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: default;
+
+  border: none;
+  border-radius: 8px;
+  color: #282828;
+  background: #8e8e8e;
+}
+
+.Button_disabled {
+  cursor: default;
+  color: #282828;
+  background: #8e8e8e;
+  border: none;
+}
+
+.Button:hover {
+  color: #FFFFFF;
+  background: #EDAC1A;
+}

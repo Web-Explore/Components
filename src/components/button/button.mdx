@@ -1,0 +1,17 @@
+---
+name: Button
+menu: Components
+---
+
+import { Button } from './button.jsx';
+import { Playground, Props } from "docz";
+
+# Button
+
+<Props of={Button} />
+
+<Playground>{() => {
+  return (
+    <Button onClick={() => alert('Click')} text={"Button"} />
+  )
+}}</Playground>

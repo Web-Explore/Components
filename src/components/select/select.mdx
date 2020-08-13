@@ -1,0 +1,53 @@
+---
+name: Select
+menu: Components
+---
+
+import { Select } from './select.jsx'
+import { Playground, Props } from 'docz'
+
+# Test
+
+## Single selection
+
+<Playground>
+  {() => {
+    const options = [
+      { value: 1, label: 'banana' },
+      { value: 2, label: 'melon' },
+      { value: 3, label: 'orange' },
+    ]
+    return (
+      <Select
+        required
+        options={options}
+        onChange={value => console.log(value)}
+      />
+    )
+  }}
+</Playground>
+
+## Multiple selection
+
+<Playground>
+  {() => {
+    const options = [
+      { value: 1, label: 'banana' },
+      { value: 2, label: 'melon' },
+      { value: 3, label: 'orange', disabled: true },
+      { value: 4, label: 'peach', selected: true },
+    ]
+    return (
+      <Select
+        required
+        options={options}
+        multi
+        onChange={value => console.log(value)}
+      />
+    )
+  }}
+</Playground>
+
+## Props
+
+<Props of={Select} />

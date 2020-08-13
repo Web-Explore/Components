@@ -1,0 +1,60 @@
+.Select {
+  display: block;
+  padding: 0.25em 0.5em;
+  background-color: #f2f2f2;
+
+  &-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  &-content {
+    position: absolute;
+    display: block;
+    width: 100%;
+
+    box-sizing: border-box;
+    // TODO:
+    z-index: 100;
+
+    list-style: none;
+    list-style-type: none;
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+    padding-inline-start: 0px;
+
+    background-color: #f2f2f2;
+    border: 1px solid #808080;
+    border-radius: 0px 0px 4px 4px;
+  }
+
+  &-option {
+    user-select: none;
+    height: 32px;
+    border-top: 1px solid #aaaaaa;
+    box-sizing: border-box;
+
+    &_selected {
+      background-color: #98eaf8;
+    }
+
+    &_disabled {
+      background-color: #e2e2e2;
+      color: #808080;
+    }
+  }
+
+  &_required {
+    border: 2px solid black;
+  }
+
+  &_optional {
+    border: 1px solid grey;
+  }
+
+  &_disabled {
+    border: 1px solid black;
+    background-color: #d0d0d0;
+  }
+}

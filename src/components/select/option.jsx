@@ -1,10 +1,13 @@
 import React from 'react'
+import { cn } from '@bem-react/classname'
 import t from 'prop-types'
 import './select.scss'
 import { stringOrNumberType } from './interfaces'
 
 const Option = ({ value, label, selected, disabled, onClick }) => {
   const inputRef = React.createRef()
+  const optionClasses = cn('Select', 'option')({ selected, disabled })
+
   const onSelect = e => {
     e.stopPropagation()
     inputRef.current.checked = !selected
@@ -12,10 +15,11 @@ const Option = ({ value, label, selected, disabled, onClick }) => {
   }
 
   return (
-    <div onClick={onSelect}>
+    <div className={optionClasses} onClick={onSelect}>
       <input
         ref={inputRef}
         type="checkbox"
+        readOnly
         checked={selected}
         disabled={disabled}
         tabIndex={-1}

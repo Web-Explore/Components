@@ -40,7 +40,13 @@ const Select = ({
   multi,
   ...attrs
 }) => {
-  const selectClasses = cn('Select')({ required, optional, disabled })
+  const state = required || !optional
+  const selectClasses = cn('Select')({
+    required: state,
+    optional: !state,
+    disabled,
+  })
+
   const contentClasses = cn('Select', 'content')()
 
   const [_options, setOptions] = React.useState(options)
@@ -140,6 +146,7 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
+  placeholder: 'Select',
   optional: true,
   required: false,
   multi: false,

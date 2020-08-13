@@ -94,9 +94,11 @@ const Select = ({
       <div className={selectClasses} onClick={onFold}>
         {title}
       </div>
-      <ul className={contentClasses} {...attrs}>
-        {isOpen && generateOptions()}
-      </ul>
+      {isOpen && (
+        <ul className={contentClasses} {...attrs}>
+          {generateOptions()}
+        </ul>
+      )}
     </div>
   )
 }

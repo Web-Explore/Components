@@ -1,0 +1,63 @@
+---
+name: Switch
+menu: Components
+---
+
+import { Switch } from './switch.jsx'
+import { Playground, Props } from 'docz'
+
+# Switch
+
+<Playground>
+  {() => {
+    const [value, setValue] = React.useState(false)
+    return (
+      <>
+        <Switch
+          checked={value}
+          size="15px"
+          onChange={setValue}
+          title="Click me!"
+        />
+        <Switch
+          checked={value}
+          size="24px"
+          onChange={setValue}
+          title="Click me!"
+        />
+        <Switch
+          checked={value}
+          size="32px"
+          onChange={setValue}
+          title="Click me!"
+        />
+        <Switch
+          checked={value}
+          size="40px"
+          onChange={setValue}
+          title="Click me!"
+        />
+      </>
+    )
+  }}
+</Playground>
+
+<Playground>
+  {() => {
+    const [value, setValue] = React.useState(false)
+    return (
+      <>
+        <div>
+          <Switch checked={value} size="24px" onChange={setValue} />
+          <Switch checked={!value} size="24px" onChange={setValue} />
+        </div>
+        <div>
+          <Switch checked={value} size="24px" onChange={setValue} />
+          <Switch checked={!value} size="24px" onChange={setValue} />
+        </div>
+      </>
+    )
+  }}
+</Playground>
+
+<Props of={Switch} />

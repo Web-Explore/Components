@@ -1,9 +1,9 @@
-import React from 'react'
 import { cn } from '@bem-react/classname'
 import t from 'prop-types'
-import './select.scss'
-import { Option } from './option'
+import React, { useEffect } from 'react'
 import { stringOrNumberType } from './interfaces'
+import { Option } from './option'
+import './select.scss'
 
 const optionType = t.shape({
   /**
@@ -52,6 +52,10 @@ const Select = ({
   const [_options, setOptions] = React.useState(options)
 
   const [isOpen, setOpen] = React.useState(false)
+
+  useEffect(() => {
+    if (!Object.is(_options, options)) setOptions(options)
+  }, [options])
 
   const selectItem = (value, status) => {
     let newOptions = []

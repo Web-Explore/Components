@@ -1,3 +1,3 @@
-import { Test } from './Test'
+import { Select } from './Select'
 
-export default Test
+export default Select

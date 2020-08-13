@@ -1,0 +1,22 @@
+.Input {
+  box-sizing: border-box;
+  background: white;
+  font-size: 18px;
+  width: 100%;
+}
+
+.Input_optional {
+  border: 1px solid grey;
+}
+
+.Input_required {
+  border: 2px solid black;
+}
+
+.Input:focus {
+  outline: none;
+}
+
+.Input_disabled {
+  background: transparent;
+}

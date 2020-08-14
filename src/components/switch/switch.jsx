@@ -1,12 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useRef } from 'react'
 import { cn } from '@bem-react/classname'
 import t from 'prop-types'
 import './switch.scss'
-import { useState } from 'react'
-
-let globalId = 1
-
-const generateId = () => `switch-btn-${globalId++}`
 
 export const Switch = ({
   checked,
@@ -16,28 +11,23 @@ export const Switch = ({
   disabled,
   ...attrs
 }) => {
+  const ref = useRef();
   const switchClasses = cn('Switch')({ disabled })
   const wrapperClasses = cn('Switch', 'wrapper')()
   const titleClasses = cn('Switch', 'title')({ disabled })
-
-  let [switchId, setId] = useState(0)
-
-  useEffect(() => {
-    switchId = setId(generateId())
-  }, [])
 
   return (
     <span className={wrapperClasses} {...attrs}>
       <span style={{ fontSize: size, lineHeight: '10px' }}>
         <input
-          id={switchId}
           type="checkbox"
           className={switchClasses}
           checked={checked}
           onChange={e => onChange(e.target.checked)}
           disabled={disabled}
+          ref={ref}
         />
-        <label htmlFor={switchId} />
+        <label onClick={() => ref.current.click()}/>
       </span>
       {title && <span className={titleClasses}>{title}</span>}
     </span>

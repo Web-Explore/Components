@@ -1,0 +1,38 @@
+.TextArea {
+  box-sizing: border-box;
+  background: white;
+  font-size: 18px;
+  width: 100%;
+
+  &_resize_both {
+    resize: both;
+  }
+
+  &_resize_vertical {
+    resize: vertical;
+  }
+
+  &_resize_horizontal {
+    resize: horizontal;
+  }
+
+  &_resize_lock {
+    resize: none;
+  }
+
+  &_optional {
+    border: 1px solid grey;
+  }
+
+  &_required {
+    border: 2px solid black;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &_disabled {
+    background: transparent;
+  }
+}

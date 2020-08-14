@@ -1,0 +1,29 @@
+---
+name: Text Area
+menu: Components
+---
+
+import { TextArea } from './textarea.jsx'
+import { Playground, Props } from 'docz'
+
+# Text Area
+
+<Playground>
+  {() => {
+    const [value, setValue] = React.useState('')
+    return <TextArea value={value} onChange={setValue} />
+  }}
+</Playground>
+
+<Playground>
+  <TextArea
+    value={'Read only text area'}
+    readonly
+    resizing="lock"
+    onChange={value => console.log(value)}
+  />
+</Playground>
+
+# Props
+
+<Props of={TextArea} />

@@ -4,11 +4,23 @@ import t from 'prop-types'
 import './textarea.scss'
 
 /**
- * Concat generated BEM styles with user defined
- * @param {string} bem
- * @param {string} custom
+ * Throws error when required prop was undefined, but prop was missed.
+ * @param {t.Validator} propType
+ * @param {t.string} required
  */
-const concatClasses = (bem, custom) => (custom || '') + ' ' + bem
+const onPropUndefined = (propType, required) => (
+  props,
+  propName,
+  componentName,
+  ...other
+) => {
+  if (props[required] != undefined && props[propName] == null)
+    return new Error(
+      `Prop '${propName}' of component '${componentName}' ` +
+        `was not provided when prop '${required}' was passed.`
+    )
+  return propType(props, propName, componentName, ...other)
+}
 
 const resizeTypes = ['both', 'horizontal', 'vertical', 'lock']
 
@@ -52,7 +64,7 @@ export const TextArea = p => {
 
 TextArea.propTypes = {
   value: t.string.isRequired,
-  onChange: t.func,
+  onChange: onPropUndefined(t.func, 'readonly'),
   placeholder: t.string,
 
   resizing: t.oneOf(resizeTypes),

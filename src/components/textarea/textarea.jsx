@@ -26,17 +26,20 @@ export const TextArea = p => {
     ...attrs
   } = p
 
-  const areaClasses = cn('TextArea')({
-    resize: resizing,
-    required,
-    optional,
-    readonly,
-    disabled,
-  })
+  const areaClasses = cn('TextArea')(
+    {
+      resize: resizing,
+      required,
+      optional,
+      readonly,
+      disabled,
+    },
+    (className || '').split(' ')
+  )
 
   return (
     <textarea
-      className={concatClasses(areaClasses, className)}
+      className={areaClasses}
       value={value}
       placeholder={placeholder}
       onChange={e => onChange != null && onChange(e.target.value)}

@@ -1,7 +1,14 @@
 import React, { useEffect } from 'react'
-import { cn } from '@bem-react/classname'
+import { cn, classNames } from '@bem-react/classname'
 import t from 'prop-types'
 import './textarea.scss'
+
+/**
+ * Concat generated BEM styles with user defined
+ * @param {string} bem
+ * @param {string} custom
+ */
+const concatClasses = (bem, custom) => (custom || '') + ' ' + bem
 
 const resizeTypes = ['both', 'horizontal', 'vertical', 'lock']
 
@@ -15,8 +22,10 @@ export const TextArea = p => {
     optional,
     readonly,
     disabled,
+    className,
     ...attrs
   } = p
+
   const areaClasses = cn('TextArea')({
     resize: resizing,
     required,
@@ -25,13 +34,12 @@ export const TextArea = p => {
     disabled,
   })
 
-  console.log(areaClasses)
   return (
     <textarea
-      className={areaClasses}
+      className={concatClasses(areaClasses, className)}
       value={value}
       placeholder={placeholder}
-      onChange={e => onChange(e.target.value)}
+      onChange={e => onChange != null && onChange(e.target.value)}
       required={required}
       readOnly={readonly}
       disabled={disabled}
@@ -41,7 +49,7 @@ export const TextArea = p => {
 
 TextArea.propTypes = {
   value: t.string.isRequired,
-  onChange: t.func.isRequired,
+  onChange: t.func,
   placeholder: t.string,
 
   resizing: t.oneOf(resizeTypes),

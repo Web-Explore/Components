@@ -1,0 +1,29 @@
+---
+name: Link
+menu: Components
+---
+
+import { Link } from './link.jsx'
+import { Playground, Props } from 'docz'
+
+# Link
+
+<Props of={Link} />
+
+<Playground>
+  {() => {
+    return (
+      <ul>
+        <li>
+          <Link href="/src-components-link-link" title="link" />
+        </li>
+        <li>
+          <Link href="/src-components-select-select" visited />
+        </li>
+        <li>
+          <Link href="/src-components-input-link" as="button" />
+        </li>
+      </ul>
+    )
+  }}
+</Playground>

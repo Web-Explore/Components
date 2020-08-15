@@ -1,0 +1,20 @@
+.Link {
+  color: #22ff22;
+
+  .Link:focus {
+    outline: none;
+    color: #7115af;
+    text-decoration: underline 2px;
+    font-weight: 800;
+  }
+
+  &_visited &:visited {
+    color: #961ce7;
+    text-decoration: underline 1px;
+  }
+
+  &_disabled {
+    color: #949494;
+    background: transparent;
+  }
+}

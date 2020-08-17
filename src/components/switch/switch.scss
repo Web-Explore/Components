@@ -8,24 +8,7 @@
   margin-block-start: 0px;
   padding-inline-start: 0px;
 
-  &-option {
-    user-select: none;
-    height: 32px;
-    border-top: 1px solid #aaaaaa;
-    box-sizing: border-box;
-
-    &_selected {
-      background-color: #98eaf8;
-    }
-
-    &_disabled {
-      background-color: #e2e2e2;
-      color: #808080;
-    }
-  }
-
   &_disabled {
-    border: 1px solid black;
-    background-color: #d0d0d0;
+    // no rules..
   }
 }

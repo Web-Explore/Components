@@ -1,0 +1,32 @@
+.Checkbox {
+  &-wrapper {
+    display: inline-flex;
+    align-items: center;
+  }
+  &-title {
+    margin-left: 0.2em;
+  }
+}
+
+input[type='checkbox'].Checkbox {
+  display: none;
+  appearance: none;
+
+  &:checked + label::after {
+    // background-color: #141414;
+    display: block;
+  }
+
+  & + label {
+    display: inline-block;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      display: none;
+      position: absolute;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import './constants';
+
+input[type='checkbox'].Checkbox.Checkbox_variant_radio {
+  &:checked + label::after {
+    background-color: $marker-color;
+  }
+
+  & + label {
+    display: inline-block;
+    position: relative;
+    width: $radio-width;
+    height: $radio-height;
+    border: 0.05em solid #646464;
+    background-color: #f3f3f3;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.09s ease-in-out;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: $radio-width/2 - $radio-marker-width/2;
+      top: $radio-height/2 - $radio-marker-width/2;
+      box-sizing: border-box;
+      width: $radio-marker-width;
+      height: $radio-marker-width;
+      border-radius: $radio-marker-width/2;
+      background-color: scale-color($color: $marker-color, $alpha: -100%);
+      transition: background-color 0.09s ease-in-out;
+    }
+  }
+}

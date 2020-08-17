@@ -1,18 +1,20 @@
+// Checkbox
 $checkbox-height: 1em;
 $checkbox-width: $checkbox-height;
 $checkbox-marker-width: $checkbox-width * 0.7;
 $checkbox-marker-height: $checkbox-marker-width * 0.35;
 
+$marker-color: #333333;
+
+//Radio button
 $radio-width: $checkbox-height;
 $radio-height: $checkbox-height;
-
 $radio-marker-width: $radio-width * 0.65;
 
+// Toggle button
 $toggle-height: $checkbox-height;
 $toggle-width: $toggle-height * 2;
 
 $box-shadow-x: $toggle-height/28;
 $box-shadow-y: $toggle-height/24;
 $box-shadow-blur: $toggle-height/12;
-
-$marker-color: #333333;

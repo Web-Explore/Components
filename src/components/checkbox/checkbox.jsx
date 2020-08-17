@@ -3,6 +3,8 @@ import { cn } from '@bem-react/classname'
 import t from 'prop-types'
 import './_variants/index.scss'
 
+const variants = ['checkbox', 'toggle', 'radio']
+
 export const Checkbox = ({
   value,
   onChange,
@@ -59,7 +61,7 @@ Checkbox.propTypes = {
   /**
    * Visual representation of checkbox, can be _checkbox_, _toggle_ or _radio_
    */
-  variant: t.oneOf(['checkbox', 'toggle', 'radio']),
+  variant: t.oneOf(variants),
   /**
    * Is component disabled
    */

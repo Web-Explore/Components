@@ -1,6 +1,5 @@
 @import './constants';
 
-//<input> element
 input[type='checkbox'].Checkbox.Checkbox_variant_toggle {
   &:checked + label::after {
     left: $toggle-height;
@@ -12,7 +11,6 @@ input[type='checkbox'].Checkbox.Checkbox_variant_toggle {
     width: $toggle-width;
     height: $toggle-height;
     border-radius: $toggle-height;
-    // background-color: #f3f3f3;
     outline: none;
     cursor: pointer;
     transition: background-color 0.09s ease-in-out;
@@ -25,10 +23,11 @@ input[type='checkbox'].Checkbox.Checkbox_variant_toggle {
       width: $toggle-height;
       height: $toggle-height;
       transform: scale(0.75);
-      background-color: #333333;
+      background-color: $marker-color;
       border-radius: $toggle-height;
       box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur #555555;
       transition: left 0.09 ease-in-out;
+
       left: 0px;
     }
   }

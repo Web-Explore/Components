@@ -1,20 +1,16 @@
 @import './constants';
 
 input[type='checkbox'].Checkbox.Checkbox_variant_checkbox {
-  display: none;
-  appearance: none;
-
   &:checked + label::after {
     border-color: $marker-color;
   }
 
+  // checkbox
   & + label {
     display: inline-block;
     width: $checkbox-width;
     height: $checkbox-height;
     border: 0.1em solid #555555;
-    background-color: #f3f3f3;
-    //border-radius: $checkbox-height;
     outline: none;
     cursor: pointer;
     transition: background-color 0.09s ease-in-out;

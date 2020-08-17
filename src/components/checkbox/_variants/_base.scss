@@ -5,18 +5,35 @@
   }
   &-title {
     margin-left: 0.2em;
+    &_disabled,
+    &:disabled {
+      color: #666;
+    }
   }
 }
 
 input[type='checkbox'].Checkbox {
+  // don't show native checkbox
   display: none;
   appearance: none;
 
+  // when component don't disabled
+  &:not(:disabled) + label,
+  &:not(.Checkbox_disabled) + label {
+    background-color: #f3f3f3;
+  }
+
+  // when component disabled
+  &:disabled + label,
+  .Checkbox_disabled {
+    background-color: #dddddd;
+  }
+
   &:checked + label::after {
-    // background-color: #141414;
     display: block;
   }
 
+  // checkbox
   & + label {
     display: inline-block;
     position: relative;

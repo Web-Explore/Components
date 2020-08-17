@@ -1,22 +1,24 @@
 @import './constants';
 
 input[type='checkbox'].Checkbox.Checkbox_variant_radio {
+  // when component checked, draw the marker
   &:checked + label::after {
     background-color: $marker-color;
   }
 
+  // checkbox
   & + label {
     display: inline-block;
     position: relative;
     width: $radio-width;
     height: $radio-height;
     border: 0.05em solid #646464;
-    background-color: #f3f3f3;
     border-radius: 50%;
     outline: none;
     cursor: pointer;
     transition: background-color 0.09s ease-in-out;
 
+    // checkbox marker
     &:after {
       content: '';
       display: block;

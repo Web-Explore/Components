@@ -75,6 +75,7 @@ const Switch = ({
         <Checkbox
           title={option.label}
           value={option.selected}
+          disabled={option.disabled}
           onChange={selectItem(option.value)}
           variant={radio ? 'radio' : 'checkbox'}
         />

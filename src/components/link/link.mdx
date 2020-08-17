@@ -11,19 +11,21 @@ import { Playground, Props } from 'docz'
 <Props of={Link} />
 
 <Playground>
-  {() => {
-    return (
-      <ul>
-        <li>
-          <Link href="/src-components-link-link" title="link" />
-        </li>
-        <li>
-          <Link href="/src-components-select-select" visited />
-        </li>
-        <li>
-          <Link href="/src-components-input-link" as="button" />
-        </li>
-      </ul>
-    )
-  }}
+  <ul>
+    <li>
+      <Link href="/src-components-link-link" title="Here" />
+    </li>
+    <li>
+      <Link href="/src-components-select-select" />
+    </li>
+    <li>
+      <Link href="/mail.ru" visited />
+    </li>
+    <li>
+      <Link title="Empty" />
+    </li>
+    <li>
+      <Link href="/src-components-input-link" as="button" />
+    </li>
+  </ul>
 </Playground>

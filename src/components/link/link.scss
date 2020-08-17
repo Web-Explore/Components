@@ -1,16 +1,22 @@
 .Link {
   color: #22ff22;
 
-  .Link:focus {
+  &:focus {
     outline: none;
     color: #7115af;
-    text-decoration: underline 2px;
+    text-decoration: underline;
     font-weight: 800;
   }
 
-  &_visited &:visited {
+  &_visited,
+  &:visited,
+  &:active {
     color: #961ce7;
-    text-decoration: underline 1px;
+    text-decoration: underline;
+  }
+
+  &:link {
+    @extend .Link;
   }
 
   &_disabled {

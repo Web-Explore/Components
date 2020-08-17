@@ -13,7 +13,10 @@ export const Link = ({
   className,
   ...attrs
 }) => {
-  const linkClasses = cn('Link')({ visited }, (className || '').split(' '))
+  const linkClasses = cn('Link')(
+    { visited, disabled },
+    (className || '').split(' ')
+  )
   const Component = as || (href ? 'a' : 'span')
 
   return (

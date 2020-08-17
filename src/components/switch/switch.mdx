@@ -1,0 +1,38 @@
+---
+name: Switch
+menu: Components
+---
+
+import { Switch } from './switch.jsx'
+import { Playground, Props } from 'docz'
+
+# Test
+
+<Playground>
+  {() => {
+    const options = [
+      { value: 1, label: '🍌banana' },
+      { value: 2, label: '🍉melon' },
+      { value: 3, label: '🍊orange' },
+    ]
+    return (
+      <>
+        <Switch
+          required
+          options={options}
+          onChange={value => console.log(value)}
+        />
+        <Switch
+          required
+          radio
+          options={options}
+          onChange={value => console.log(value)}
+        />
+      </>
+    )
+  }}
+</Playground>
+
+## Props
+
+<Props of={Switch} />

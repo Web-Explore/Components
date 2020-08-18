@@ -1,3 +1,6 @@
+@import './_constants';
+@import './_variants/index.scss';
+
 .Checkbox {
   &-wrapper {
     display: inline-flex;

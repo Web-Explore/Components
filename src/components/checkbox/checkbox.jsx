@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { cn } from '@bem-react/classname'
 import t from 'prop-types'
-import './_variants/index.scss'
+import './checkbox.scss'
 
 const variants = ['checkbox', 'toggle', 'radio']
 
@@ -10,18 +10,18 @@ export const Checkbox = ({
   onChange,
   variant,
   size,
-  title,
+  label,
   disabled,
   ...attrs
 }) => {
   const ref = useRef()
-  const checkboxClasses = cn('Checkbox')({ variant, disabled })
+  const checkboxClasses = cn('Checkbox')({ variant, size, disabled })
   const wrapperClasses = cn('Checkbox', 'wrapper')()
-  const titleClasses = cn('Checkbox', 'title')({ disabled })
+  const labelClasses = cn('Checkbox', 'label')({ size, disabled })
 
   return (
     <span className={wrapperClasses} {...attrs}>
-      <span style={{ fontSize: size, lineHeight: '10px' }}>
+      <span>
         <input
           type="checkbox"
           className={checkboxClasses}
@@ -32,7 +32,7 @@ export const Checkbox = ({
         />
         <label onClick={() => ref.current.click()} />
       </span>
-      {title && <span className={titleClasses}>{title}</span>}
+      {label && <span className={labelClasses}>{label}</span>}
     </span>
   )
 }
@@ -41,7 +41,7 @@ Checkbox.propTypes = {
   /**
    * The height of the checkbox, can be passed any valid css size
    */
-  size: t.oneOfType([t.string, t.number]),
+  size: t.oneOf(['xs', 's', 'm', 'l', 'xl']),
 
   /**
    * Is checkbox checked
@@ -54,9 +54,9 @@ Checkbox.propTypes = {
   onChange: t.func.isRequired,
 
   /**
-   * Displayed title
+   * Displayed label
    */
-  title: t.string,
+  label: t.string,
 
   /**
    * Visual representation of checkbox, can be _checkbox_, _toggle_ or _radio_
@@ -69,7 +69,7 @@ Checkbox.propTypes = {
 }
 
 Checkbox.defaultProps = {
-  size: '1em',
+  size: 'm',
   value: false,
   variant: 'checkbox',
   disabled: false,

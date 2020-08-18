@@ -14,108 +14,23 @@ import { Playground, Props } from 'docz'
     return (
       <>
         <div>
-          <Checkbox
-            value={value}
-            size="15px"
-            onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            size="24px"
-            onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            size="32px"
-            onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            size="40px"
-            onChange={setValue}
-            title="Click me!"
-          />
+          <Checkbox value={value} onChange={setValue} label="Click me!" />
         </div>
         <div>
           <Checkbox
             value={value}
             variant="radio"
-            size="15px"
             onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            variant="radio"
-            size="24px"
-            onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            variant="radio"
-            size="32px"
-            onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            variant="radio"
-            size="40px"
-            onChange={setValue}
-            title="Click me!"
+            label="Click me!"
           />
         </div>
         <div>
           <Checkbox
             value={value}
             variant="toggle"
-            size="15px"
             onChange={setValue}
-            title="Click me!"
+            label="Click me!"
           />
-          <Checkbox
-            value={value}
-            variant="toggle"
-            size="24px"
-            onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            variant="toggle"
-            size="32px"
-            onChange={setValue}
-            title="Click me!"
-          />
-          <Checkbox
-            value={value}
-            variant="toggle"
-            size="40px"
-            onChange={setValue}
-            title="Click me!"
-          />
-        </div>
-      </>
-    )
-  }}
-</Playground>
-
-<Playground>
-  {() => {
-    const [value, setValue] = React.useState(false)
-    return (
-      <>
-        <div>
-          <Checkbox value={value} size="24px" onChange={setValue} />
-          <Checkbox value={!value} size="24px" onChange={setValue} />
-        </div>
-        <div>
-          <Checkbox value={value} size="24px" onChange={setValue} />
-          <Checkbox value={!value} size="24px" onChange={setValue} />
         </div>
       </>
     )

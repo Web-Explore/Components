@@ -73,7 +73,7 @@ const Switch = ({
     _options.map(option => (
       <li key={option.value}>
         <Checkbox
-          title={option.label}
+          label={option.label}
           value={option.selected}
           disabled={option.disabled || disabled}
           onChange={selectItem(option.value)}

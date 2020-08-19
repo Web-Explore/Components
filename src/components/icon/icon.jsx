@@ -1,14 +1,16 @@
 import React from 'react'
-import { cn } from '@bem-react/classname'
+import {IconTemp} from './IconTemp.jsx'
 import DefaultIcon from '../../assets/icons/default-icon.svg'
+import Logout from './icons/Logout.svg';
 
-const icon = cn("Icon")
-
-export const Icon = props => {
-  return (
-    <>
-      <img src={DefaultIcon} alt=""/>
-    </>
-  )
-}
-
+const Icon = [
+  { Logout },
+].reduce((acc,icon)=>{
+  const [e] =Object.entries(icon);
+  debugger
+return { ...acc, [e[0]]: (props) => <IconTemp {...props} src={e[1]} /> };
+},{});
+//
+console.log(Icon);
+console.log(Icon.Logout);
+export default Icon;

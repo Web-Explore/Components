@@ -3,18 +3,17 @@ name: Icon
 menu: Components
 ---
 
-import { Icon } from './icon.jsx';
 import { Playground, Props } from "docz";
 import DefaultIcon from '../../assets/icons/default-icon.svg'
+import Icon from './icon.jsx'
 
 # Icon
-
-<Props of={Icon} />
 
 <Playground>{() => {
   return (
     <>
-      <img src={DefaultIcon} alt=""/>
+      <Icon.Logout />
     </>
   )
 }}</Playground>
+

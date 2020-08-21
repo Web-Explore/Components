@@ -1,0 +1,26 @@
+.Link {
+  color: #22ff22;
+
+  &:focus {
+    outline: none;
+    color: #7115af;
+    text-decoration: underline;
+    font-weight: 800;
+  }
+
+  &_visited,
+  &:visited,
+  &:active {
+    color: #961ce7;
+    text-decoration: underline;
+  }
+
+  &:link {
+    @extend .Link;
+  }
+
+  &_disabled {
+    color: #949494;
+    background: transparent;
+  }
+}

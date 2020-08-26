@@ -1,0 +1,40 @@
+---
+name: Checkbox
+menu: Components
+---
+
+import { Checkbox } from './checkbox.jsx'
+import { Playground, Props } from 'docz'
+
+# Checkbox
+
+<Playground>
+  {() => {
+    const [value, setValue] = React.useState(false)
+    return (
+      <>
+        <div>
+          <Checkbox value={value} onChange={setValue} label="Click me!" />
+        </div>
+        <div>
+          <Checkbox
+            value={value}
+            variant="radio"
+            onChange={setValue}
+            label="Click me!"
+          />
+        </div>
+        <div>
+          <Checkbox
+            value={value}
+            variant="toggle"
+            onChange={setValue}
+            label="Click me!"
+          />
+        </div>
+      </>
+    )
+  }}
+</Playground>
+
+<Props of={Checkbox} />

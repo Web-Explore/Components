@@ -1,8 +1,8 @@
-import { Input } from "./input";
-import { Button } from "./button";
-import { Link } from "./link";
-import { Select } from "./select";
-import { Switch } from "./switch";
-import { TextArea } from "./switch";
+export { Input } from "./input";
+export { Button } from "./button";
+export { Link } from "./link";
+export { Select } from "./select";
+export { Switch } from "./switch";
+export { TextArea } from "./textarea";
+export { Checkbox } from "./switch";
 
-export { Input, Button, Link, Select, Switch, TextArea };

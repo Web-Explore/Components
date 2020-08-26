@@ -1,47 +1,14 @@
-$switch-heigth: 1em;
-$switch-width: $switch-heigth * 2;
-$box-shadow-x: $switch-heigth/28;
-$box-shadow-y: $switch-heigth/24;
-$box-shadow-blur: $switch-heigth/12;
+.Switch {
+  display: block;
+  width: 100%;
 
-.Switch-wrapper {
-  display: inline-flex;
-  align-items: center;
-}
+  list-style: none;
+  list-style-type: none;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  padding-inline-start: 0px;
 
-.Switch-title {
-  margin-left: 0.2em;
-}
-
-input[type='checkbox'].Switch {
-  display: none;
-}
-
-input[type='checkbox'].Switch + label {
-  display: inline-block;
-  width: $switch-width;
-  height: $switch-heigth;
-  border-radius: $switch-heigth;
-  background-color: #f3f3f3;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.09s ease-in-out;
-  position: relative;
-}
-
-input[type='checkbox'].Switch + label::after {
-  content: '';
-  position: absolute;
-  width: $switch-heigth;
-  height: $switch-heigth;
-  transform: scale(0.75);
-  background-color: #333333;
-  border-radius: $switch-heigth;
-  box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur #555555;
-  transition: left 0.09 ease-in-out;
-  left: 0px;
-}
-
-input[type='checkbox'].Switch:checked + label::after {
-  left: $switch-heigth;
+  &_disabled {
+    // no rules..
+  }
 }

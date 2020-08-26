@@ -1,68 +1,141 @@
-import React, { useRef } from 'react'
 import { cn } from '@bem-react/classname'
 import t from 'prop-types'
+import React, { useEffect } from 'react'
+import { stringOrNumberType } from './interfaces'
+import { Checkbox } from '../checkbox'
 import './switch.scss'
 
-export const Switch = ({
-  checked,
+const optionType = t.shape({
+  /**
+   * Label which displayed in component
+   */
+  label: t.oneOfType(stringOrNumberType).isRequired,
+
+  /**
+   * Value which associated with option
+   */
+  value: t.oneOfType(stringOrNumberType).isRequired,
+
+  /**
+   * Is option selected
+   */
+  selected: t.bool,
+
+  /**
+   * Is option disabled
+   */
+  disabled: t.bool,
+})
+
+/**
+ * Switch component
+ */
+const Switch = ({
+  placeholder,
+  options,
   onChange,
-  size,
-  title,
+  radio,
+  required,
+  optional,
   disabled,
+  multi,
   ...attrs
 }) => {
-  const ref = useRef();
-  const switchClasses = cn('Switch')({ disabled })
-  const wrapperClasses = cn('Switch', 'wrapper')()
-  const titleClasses = cn('Switch', 'title')({ disabled })
+  const state = required || !optional
+  const selectClasses = cn('Switch')({
+    required: state,
+    optional: !state,
+    disabled,
+  })
+
+  const [_options, setOptions] = React.useState(options)
+
+  useEffect(() => {
+    if (!Object.is(_options, options)) setOptions(options)
+  }, [options])
+
+  const selectItem = value => status => {
+    let newOptions = []
+    const option = optionByValue(value)
+
+    newOptions = _options.map(op => ({
+      ...op,
+      selected: op.value === value,
+    }))
+    setOptions(newOptions)
+    onChange({ value: option.value, label: option.label })
+  }
+
+  const optionByValue = value =>
+    _options.filter(op => op.value === value)[0] || null
+
+  const generateOptions = () =>
+    _options.map(option => (
+      <li key={option.value}>
+        <Checkbox
+          label={option.label}
+          value={option.selected}
+          disabled={option.disabled || disabled}
+          onChange={selectItem(option.value)}
+          variant={radio ? 'radio' : 'checkbox'}
+        />
+      </li>
+    ))
 
   return (
-    <span className={wrapperClasses} {...attrs}>
-      <span style={{ fontSize: size, lineHeight: '10px' }}>
-        <input
-          type="checkbox"
-          className={switchClasses}
-          checked={checked}
-          onChange={e => onChange(e.target.checked)}
-          disabled={disabled}
-          ref={ref}
-        />
-        <label onClick={() => ref.current.click()}/>
-      </span>
-      {title && <span className={titleClasses}>{title}</span>}
-    </span>
+    <ul className={selectClasses} {...attrs}>
+      {generateOptions()}
+    </ul>
   )
 }
 
 Switch.propTypes = {
   /**
-   * The height of the switch, can be passed any valid css size
+   * Placeholder
    */
-  size: t.oneOfType([t.string, t.number]),
+  placeholder: t.string.isRequired,
+  /**
+   * List of displayed options
+   */
+  options: t.arrayOf(optionType),
 
   /**
-   * Is switch checked
-   */
-  checked: t.bool,
-
-  /**
-   * Callback which triggers when value changes
+   * Callback which triggers when value changed
    */
   onChange: t.func.isRequired,
 
   /**
-   * Displayed title
+   * Is multiple selection enabled
    */
-  title: t.string,
+  multi: t.bool,
 
   /**
-   * Is component disabled
+   * Replace checkboxes with radio buttons
+   */
+  radio: t.bool,
+
+  /**
+   * Is field required to be filled
+   */
+  required: t.bool,
+
+  /**
+   * Is field optional
+   */
+  optional: t.bool,
+
+  /**
+   * Is element disabled
    */
   disabled: t.bool,
 }
 
 Switch.defaultProps = {
-  size: '1em',
-  checked: false,
+  placeholder: 'Switch',
+  optional: true,
+  required: false,
+  multi: false,
   disabled: false,
 }
+
+export { Switch }

@@ -1,5 +1,5 @@
-@import './_constants';
-@import './_variants/index.scss';
+@import 'constants';
+@import '_variants/index';
 
 .Checkbox {
   &-wrapper {

@@ -6,58 +6,42 @@ menu: Components
 import { Switch } from './switch.jsx'
 import { Playground, Props } from 'docz'
 
-# Switch
+# Test
 
 <Playground>
   {() => {
-    const [value, setValue] = React.useState(false)
+    const options = [
+      { value: 1, label: '🍌banana' },
+      { value: 2, label: '🍉melon', selected: true },
+      { value: 3, label: '🍊orange' },
+      { value: 4, label: '💻work', disabled: true },
+    ]
     return (
       <>
         <Switch
-          checked={value}
-          size="15px"
-          onChange={setValue}
-          title="Click me!"
+          required
+          options={options}
+          onChange={value => console.log(value)}
         />
         <Switch
-          checked={value}
-          size="24px"
-          onChange={setValue}
-          title="Click me!"
+          required
+          radio
+          options={options}
+          onChange={value => console.log(value)}
         />
+        <h2>Disabled</h2>
         <Switch
-          checked={value}
-          size="32px"
-          onChange={setValue}
-          title="Click me!"
-        />
-        <Switch
-          checked={value}
-          size="40px"
-          onChange={setValue}
-          title="Click me!"
+          required
+          radio
+          disabled
+          options={options}
+          onChange={value => console.log(value)}
         />
       </>
     )
   }}
 </Playground>
 
-<Playground>
-  {() => {
-    const [value, setValue] = React.useState(false)
-    return (
-      <>
-        <div>
-          <Switch checked={value} size="24px" onChange={setValue} />
-          <Switch checked={!value} size="24px" onChange={setValue} />
-        </div>
-        <div>
-          <Switch checked={value} size="24px" onChange={setValue} />
-          <Switch checked={!value} size="24px" onChange={setValue} />
-        </div>
-      </>
-    )
-  }}
-</Playground>
+## Props
 
 <Props of={Switch} />
